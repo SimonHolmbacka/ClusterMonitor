@@ -209,10 +209,13 @@ void* udpserver(void* v)
       QWidget * widget4 = stackedWidget->widget(0);
       // Layout of stack 1 widget - manometer
 
+      QFont* barfont = new QFont();
+      barfont->setPixelSize(25);
 
       widget = stackedWidget->widget(0);
       bar = new ManoMeter(widget);
       bar->setValueFont(font()); // bar->digitFont());
+      bar->setFont(*barfont);
       bar->resize(200,200);
       bar->setMaximum(1600);
       bar->setCritical(1400);
@@ -229,6 +232,7 @@ void* udpserver(void* v)
       widget2 = stackedWidget->widget(0);
       bar2 = new ManoMeter(widget2);
       bar2->setValueFont(font()); // bar->digitFont());
+      bar2->setFont(*barfont);
       bar2->resize(200,200);
       bar2->setMaximum(1600);
       bar2->setCritical(1400);
@@ -244,6 +248,7 @@ void* udpserver(void* v)
       widget3 = stackedWidget->widget(0);
       bar3 = new ManoMeter(widget3);
       bar3->setValueFont(font()); // bar->digitFont());
+      bar3->setFont(*barfont);
       bar3->resize(200,200);
       bar3->setMaximum(1600);
       bar3->setCritical(1400);
@@ -259,6 +264,7 @@ void* udpserver(void* v)
       widget4 = stackedWidget->widget(0);
       bar4 = new ManoMeter(widget4);
       bar4->setValueFont(font()); // bar->digitFont());
+      bar4->setFont(*barfont);
       bar4->resize(200,200);
       bar4->setMaximum(1600);
       bar4->setCritical(1400);
@@ -293,7 +299,7 @@ void* udpserver(void* v)
       this->progressBar_4->setStyleSheet(QString("QProgressBar::chunk:horizontal {background: qlineargradient(x1: 0, y1: 0.5, x2: 1, y2: 0.5, stop: 0 white, stop: 1 lightblue);}")+QString("QProgressBar::horizontal {border: 1px solid gray; border-radius: 3px; background: white; padding: 0px; text-align: left; margin-right: 4ex;}"));
       this->progressBar_5->setStyleSheet(QString("QProgressBar::chunk:horizontal {background: qlineargradient(x1: 0, y1: 0.5, x2: 1, y2: 0.5, stop: 0 white, stop: 1 lightblue);}")+QString("QProgressBar::horizontal {border: 1px solid gray; border-radius: 3px; background: white; padding: 0px; text-align: left; margin-right: 4ex;}"));
       //total load:
-      this->progressBar_3->setStyleSheet(QString("QProgressBar::chunk:horizontal {background: qlineargradient(x1: 0, y1: 0.5, x2: 1, y2: 0.5, stop: 0 white, stop: 1 pink);}")+QString("QProgressBar::horizontal {border: 1px solid gray; border-radius: 3px; background: white; padding: 0px; text-align: left; margin-right: 4ex;}"));
+      this->progressBar_3->setStyleSheet(QString("QProgressBar::chunk:horizontal {background: qlineargradient(x1: 0, y1: 0.5, x2: 1, y2: 0.5, stop: 0 white, stop: 1 #ff4444);}")+QString("QProgressBar::horizontal {border: 1px solid gray; border-radius: 3px; background: white; padding: 0px; text-align: left; margin-right: 4ex;}"));
       this->progressBar_3->setRange(0, 400);
       this->progressBar_3->setMaximum(400);
 
@@ -352,22 +358,22 @@ void* udpserver(void* v)
     void TestWidget::make_cores()
     {
 
-    cores[0] ? this->core0->setStyleSheet("background-color: green") : this->core0->setStyleSheet("background-color: red");
-    cores[1] ? this->core1->setStyleSheet("background-color: green") : this->core1->setStyleSheet("background-color: red");
-    cores[2] ? this->core2->setStyleSheet("background-color: green") : this->core2->setStyleSheet("background-color: red");
-    cores[3] ? this->core3->setStyleSheet("background-color: green") : this->core3->setStyleSheet("background-color: red");
-    cores[4] ? this->core4->setStyleSheet("background-color: green") : this->core4->setStyleSheet("background-color: red");
-    cores[5] ? this->core5->setStyleSheet("background-color: green") : this->core5->setStyleSheet("background-color: red");
-    cores[6] ? this->core6->setStyleSheet("background-color: green") : this->core6->setStyleSheet("background-color: red");
-    cores[7] ? this->core7->setStyleSheet("background-color: green") : this->core7->setStyleSheet("background-color: red");
-    cores[8] ? this->core8->setStyleSheet("background-color: green") : this->core8->setStyleSheet("background-color: red");
-    cores[9] ? this->core9->setStyleSheet("background-color: green") : this->core9->setStyleSheet("background-color: red");
-    cores[10] ? this->core10->setStyleSheet("background-color: green") : this->core10->setStyleSheet("background-color: red");
-    cores[11] ? this->core11->setStyleSheet("background-color: green") : this->core11->setStyleSheet("background-color: red");
-    cores[12] ? this->core12->setStyleSheet("background-color: green") : this->core12->setStyleSheet("background-color: red");
-    cores[13] ? this->core13->setStyleSheet("background-color: green") : this->core13->setStyleSheet("background-color: red");
-    cores[14] ? this->core14->setStyleSheet("background-color: green") : this->core14->setStyleSheet("background-color: red");
-    cores[15] ? this->core15->setStyleSheet("background-color: green") : this->core15->setStyleSheet("background-color: red");
+    cores[0] ? this->core0->setStyleSheet("background-color: #7dff5f") : this->core0->setStyleSheet("background-color: #ff4444");
+    cores[1] ? this->core1->setStyleSheet("background-color: #7dff5f") : this->core1->setStyleSheet("background-color: #ff4444");
+    cores[2] ? this->core2->setStyleSheet("background-color: #7dff5f") : this->core2->setStyleSheet("background-color: #ff4444");
+    cores[3] ? this->core3->setStyleSheet("background-color: #7dff5f") : this->core3->setStyleSheet("background-color: #ff4444");
+    cores[4] ? this->core4->setStyleSheet("background-color: #7dff5f") : this->core4->setStyleSheet("background-color: #ff4444");
+    cores[5] ? this->core5->setStyleSheet("background-color: #7dff5f") : this->core5->setStyleSheet("background-color: #ff4444");
+    cores[6] ? this->core6->setStyleSheet("background-color: #7dff5f") : this->core6->setStyleSheet("background-color: #ff4444");
+    cores[7] ? this->core7->setStyleSheet("background-color: #7dff5f") : this->core7->setStyleSheet("background-color: #ff4444");
+    cores[8] ? this->core8->setStyleSheet("background-color: #7dff5f") : this->core8->setStyleSheet("background-color: #ff4444");
+    cores[9] ? this->core9->setStyleSheet("background-color: #7dff5f") : this->core9->setStyleSheet("background-color: #ff4444");
+    cores[10] ? this->core10->setStyleSheet("background-color: #7dff5f") : this->core10->setStyleSheet("background-color: #ff4444");
+    cores[11] ? this->core11->setStyleSheet("background-color: #7dff5f") : this->core11->setStyleSheet("background-color: #ff4444");
+    cores[12] ? this->core12->setStyleSheet("background-color: #7dff5f") : this->core12->setStyleSheet("background-color: #ff4444");
+    cores[13] ? this->core13->setStyleSheet("background-color: #7dff5f") : this->core13->setStyleSheet("background-color: #ff4444");
+    cores[14] ? this->core14->setStyleSheet("background-color: #7dff5f") : this->core14->setStyleSheet("background-color: #ff4444");
+    cores[15] ? this->core15->setStyleSheet("background-color: #7dff5f") : this->core15->setStyleSheet("background-color: #ff4444");
     }
 
     void TestWidget::make_load()
