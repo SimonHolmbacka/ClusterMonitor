@@ -377,8 +377,8 @@ void* udpserver(void* v)
       this->progressBar_4->setValue(loads[2]);
       this->progressBar_5->setValue(loads[3]);
 
-      //this->progressBar_3->setValue(loads[0]+loads[1]+loads[2]+loads[3]);
-      this->progressBar_3->setValue(350);
+      this->progressBar_3->setValue(loads[0]+loads[1]+loads[2]+loads[3]);
+
     }
 
     void TestWidget::make_graph()
@@ -403,10 +403,22 @@ void* udpserver(void* v)
           g3members[i] = g3members[i+1];  //shift all members to the left
           g4members[i] = g4members[i+1];  //shift all members to the left
       }
-      g1members[GSIZE-1] = p1;            //add new value to the rightmost position
-      g2members[GSIZE-1] = p2;            //add new value to the rightmost position
-      g3members[GSIZE-1] = p3;            //add new value to the rightmost position
-      g4members[GSIZE-1] = p4;            //add new value to the rightmost position
+      if(p1>0.0)
+        g1members[GSIZE-1] = p1;            //add new value to the rightmost position
+      else
+        g1members[GSIZE-1] = g1members[GSIZE-2];
+      if(p2>0.0)
+        g2members[GSIZE-1] = p2;            //add new value to the rightmost position
+      else
+        g2members[GSIZE-1] = g2members[GSIZE-2];
+      if(p3>0.0)
+        g3members[GSIZE-1] = p3;            //add new value to the rightmost position
+      else
+        g3members[GSIZE-1] = g3members[GSIZE-2];
+      if(p4>0.0)
+        g4members[GSIZE-1] = p4;            //add new value to the rightmost position
+      else
+        g4members[GSIZE-1] = g4members[GSIZE-2];
 
       scene1->clear();                    //Clear graph
       scene2->clear();                    //Clear graph
